@@ -1,0 +1,19 @@
+import { IsEmail, IsNotEmpty, IsString, MinLength} from "class-validator"
+
+export class RegisterDto {
+    @IsEmail({}, {
+        message: "Please provide a valid email address"
+    })
+    email: string;
+
+    @IsString()
+    @IsNotEmpty()
+    @MinLength(8, {
+        message: "Password must be at leaset 9 characters long"
+    })
+    password: string;
+
+    @IsString()
+    @IsNotEmpty()
+    fullName: string;
+}
