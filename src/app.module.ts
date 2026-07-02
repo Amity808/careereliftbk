@@ -7,6 +7,8 @@ import { DatabaseModule } from './database/database.module';
 import { RedisModule } from './redis/redis.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { OnboardingModule } from './modules/onboarding/onboarding.module';
+import { QuestionModule } from './modules/questions/questions.module';
+import { CompaniesModule } from './modules/companies/companies.module';
 
 @Module({
   imports: [
@@ -18,7 +20,9 @@ import { OnboardingModule } from './modules/onboarding/onboarding.module';
     DatabaseModule,
     RedisModule,
     AuthModule,
-    OnboardingModule
+    OnboardingModule,
+    QuestionModule,
+    CompaniesModule
   ],
   controllers: [AppController],
   providers: [AppService],
