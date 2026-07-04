@@ -2,7 +2,9 @@ import { Controller, Post, Body, UseGuards, Request } from '@nestjs/common'
 import { OnboardingDto } from './dto/onboarding.dto'
 import { OnboardingService } from './onboarding.service'
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard'
+import { ApiTags } from '@nestjs/swagger'
 
+@ApiTags('onboarding')
 @Controller('onboarding')
 export class OnbordingController {
     constructor(private readonly onboardingService: OnboardingService) {}

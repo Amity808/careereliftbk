@@ -4,7 +4,9 @@ import { Controller, Get, Post, Delete, Param, Query
 import { QuestionService } from './questions.service';
 import { SubmitReponseDto } from './dto/submit-response.dto';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('questions')
 @Controller('questions')
 @UseGuards(JwtAuthGuard)
 export class QuestionsController {

@@ -1,9 +1,10 @@
 import { Controller, Get, UseGuards, Request } from "@nestjs/common";
 import { StreaksService } from "./streaks.service";
 import { JwtAuthGuard } from "src/common/guards/jwt-auth.guard";
+import { ApiTags } from "@nestjs/swagger";
 
-
-@Controller()
+@ApiTags('streaks')
+@Controller('streaks')
 @UseGuards(JwtAuthGuard)
 export class StreakController {
     constructor(private readonly streakService: StreaksService) {}

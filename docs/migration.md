@@ -1,0 +1,4 @@
+pnpm db:generate
+
+
+pnpm db:migrate

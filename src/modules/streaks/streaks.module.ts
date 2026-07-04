@@ -4,7 +4,8 @@ import { StreakController } from "./streaks.controller";
 
 @Module({
     controllers: [StreakController],
-    providers: [StreaksService]
+    providers: [StreaksService],
+    exports: [StreaksService]
 })
 
 export class StreakModule {}

@@ -4,9 +4,10 @@ import { Controller, Get, Post, Param, Body
  import { CompaniesService } from "./companies.service";
  import { ContributionDto } from "./dto/contribution.dto";
  import { JwtAuthGuard } from "src/common/guards/jwt-auth.guard";
+ import { ApiTags } from "@nestjs/swagger";
 
-
- @Controller()
+ @ApiTags('companies')
+ @Controller('companies')
 export class CompaniesController {
     constructor(private readonly companiesService: CompaniesService) {}
 

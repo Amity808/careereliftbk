@@ -1,7 +1,9 @@
 import { Controller, Get, UseGuards, Request } from "@nestjs/common";
 import { DashboardService } from "./dashboard.service";
 import { JwtAuthGuard } from "src/common/guards/jwt-auth.guard";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags('dashboard')
 @Controller('dashboard')
 @UseGuards(JwtAuthGuard)
 export class DashboardController {
