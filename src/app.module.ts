@@ -9,6 +9,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { OnboardingModule } from './modules/onboarding/onboarding.module';
 import { QuestionModule } from './modules/questions/questions.module';
 import { CompaniesModule } from './modules/companies/companies.module';
+import { StreakModule } from './modules/streaks/streaks.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { CompaniesModule } from './modules/companies/companies.module';
     AuthModule,
     OnboardingModule,
     QuestionModule,
-    CompaniesModule
+    CompaniesModule,
+    StreakModule
   ],
   controllers: [AppController],
   providers: [AppService],
