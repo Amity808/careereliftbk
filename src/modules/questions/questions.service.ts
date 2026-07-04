@@ -4,12 +4,14 @@ import { NodePgDatabase } from 'drizzle-orm/node-postgres'
 import * as schema from '../../database/schema';
 import { eq, and, sql, notInArray } from 'drizzle-orm';
 import { SubmitReponseDto } from './dto/submit-response.dto';
+import { StreaksService } from '../streaks/streaks.service';
 
 @Injectable()
 export class QuestionService {
     constructor(
         @Inject(DRIZZLE_PROVIDER)
         private db: NodePgDatabase<typeof schema>,
+        private streaksService: StreaksService,
     ) {}
 
 
@@ -110,7 +112,7 @@ export class QuestionService {
         let streakUpdated: any = null;
         if (status == 'submitted') {
             // streak validation logic will call StreaksService inphase 9 
-            streakUpdated = { message: 'Streak checks processed'};
+            streakUpdated = await this.streaksService.updateStreak(userId, 'Africa/Lagos');
         }
 
         return {

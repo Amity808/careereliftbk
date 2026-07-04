@@ -10,6 +10,7 @@ import { OnboardingModule } from './modules/onboarding/onboarding.module';
 import { QuestionModule } from './modules/questions/questions.module';
 import { CompaniesModule } from './modules/companies/companies.module';
 import { StreakModule } from './modules/streaks/streaks.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { StreakModule } from './modules/streaks/streaks.module';
     OnboardingModule,
     QuestionModule,
     CompaniesModule,
-    StreakModule
+    StreakModule,
+    DashboardModule
   ],
   controllers: [AppController],
   providers: [AppService],
