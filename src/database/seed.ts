@@ -6,8 +6,12 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
+const connectionString = process.env.DATABASE_URL!;
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString,
+  ssl: connectionString.includes('localhost') || connectionString.includes('127.0.0.1')
+    ? false
+    : { rejectUnauthorized: false }
 });
 
 const db = drizzle(pool, { schema });

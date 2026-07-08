@@ -17,7 +17,9 @@ export const DRIZZLE_PROVIDER = 'DRIZZLE_PROVIDER';
                 const connectionString = configService.getOrThrow<string>('DATABASE_URL');
                 const pool = new Pool({
                     connectionString,
-                    ssl: connectionString.includes('neon.tech') ? {rejectUnauthorized: false} : false
+                    ssl: connectionString.includes('localhost') || connectionString.includes('127.0.0.1')
+                        ? false
+                        : { rejectUnauthorized: false }
                 });
                 return drizzle(pool, {schema});
             }
