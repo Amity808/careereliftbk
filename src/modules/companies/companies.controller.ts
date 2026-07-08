@@ -7,7 +7,7 @@ import { Controller, Get, Post, Param, Body
  import { ApiTags } from "@nestjs/swagger";
 
  @ApiTags('companies')
- @Controller('companies')
+ @Controller()
 export class CompaniesController {
     constructor(private readonly companiesService: CompaniesService) {}
 
