@@ -31,7 +31,7 @@ export class QuestionsController {
         return this.questionsService.getQuestionDetail(id, req.user.id)
     }
 
-    @Post(':id/response')
+    @Post(':id/responses')
     async submitResponse(
         @Param('id') id: string,
         @Request() req: any,

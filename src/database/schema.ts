@@ -154,3 +154,48 @@ export const userBadges = pgTable('user_badges', {
   badgeType: varchar('badge_type', { length: 100 }).notNull(),
   awardedAt: timestamp('awarded_at', { withTimezone: true }).defaultNow().notNull(),
 });
+
+export const challengeCategoryEnum = pgEnum('challenge_category_enum', 
+  ['component', 'interaction', 'form', 'layout']
+);
+
+export const submissionStatusEnum = pgEnum('submission_status_enum', 
+  ['draft', 'completed']
+);
+
+export const designChallenges = pgTable('design_challenges', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  title: varchar('title', { length: 255 }).notNull(),
+  description: text('description').notNull(),
+  difficulty: difficultyEnum('difficulty').notNull(),
+  category: challengeCategoryEnum('category').notNull(),
+  estimatedTimeMins: integer('estimated_time_minutes').notNull(),
+  specs: jsonb('specs').default([]).notNull(),
+  imageUrl: varchar('image_url', { length: 500 }).notNull(),
+  starterCode: text('starter_code').notNull(),
+  referenceSolutionCode: text('reference_solution_code').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+});
+
+export const challengeSubmissions = pgTable('challenge_submissions', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
+  challengeId: uuid('challenge_id').notNull().references(() => designChallenges.id, { onDelete: 'cascade' }),
+  userCode: text('user_code').notNull(),
+  status: submissionStatusEnum('status').default('draft').notNull(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+}, (t) => [
+  unique('unique_user_challenge_submission').on(t.userId, t.challengeId)
+]);
+
+export const figmaDesigns = pgTable('figma_designs', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  title: varchar('title', { length: 255 }).notNull(),
+  description: text('description').notNull(),
+  category: varchar('category', { length: 100 }).notNull(),
+  difficulty: difficultyEnum('difficulty').notNull(),
+  figmaEmbedUrl: varchar('figma_embed_url', { length: 1000 }).notNull(),
+  specs: jsonb('specs').default([]).notNull(),
+  tags: jsonb('tags').default([]).notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+});

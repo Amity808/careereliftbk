@@ -11,6 +11,8 @@ import { QuestionModule } from './modules/questions/questions.module';
 import { CompaniesModule } from './modules/companies/companies.module';
 import { StreakModule } from './modules/streaks/streaks.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { ChallengesModule } from './modules/challenges/challenges.module';
+import { DesignsModule } from './modules/designs/designs.module';
 
 @Module({
   imports: [
@@ -26,7 +28,9 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     QuestionModule,
     CompaniesModule,
     StreakModule,
-    DashboardModule
+    DashboardModule,
+    ChallengesModule,
+    DesignsModule
   ],
   controllers: [AppController],
   providers: [AppService],

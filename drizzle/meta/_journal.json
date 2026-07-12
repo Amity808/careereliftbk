@@ -15,6 +15,13 @@
       "when": 1783883573074,
       "tag": "0001_fearless_songbird",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1783886665840,
+      "tag": "0002_jittery_chat",
+      "breakpoints": true
     }
   ]
 }
