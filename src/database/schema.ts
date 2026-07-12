@@ -27,7 +27,7 @@ export const stageEnum = pgEnum('interview_stage_enum',
 );
 
 export const outcomeEnum = pgEnum('interview_outcome_enum', 
-    ['offer', 'reject', 'pending']
+    ['offer', 'rejected', 'pending']
 );
 
 export const responseStatusEnum = pgEnum('response_status_enum', 

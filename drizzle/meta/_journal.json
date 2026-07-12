@@ -8,6 +8,13 @@
       "when": 1783169739221,
       "tag": "0000_living_blindfold",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1783883573074,
+      "tag": "0001_fearless_songbird",
+      "breakpoints": true
     }
   ]
 }
